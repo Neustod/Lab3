@@ -8,30 +8,52 @@ int main(int argc, char* argv[]) {
     QueueModule queue1;
     StackModule stack1;
 
+    int n, priority;
     Data d;
 
-    pQueue1.Push(4, { 13 });
-    pQueue1.Push(0, { 20 });
-    pQueue1.Push(4, { 12 });
+    std::cout << "Enter a number of list's elements >> ";
+    std::cin >> n;
 
-    for (int i = 0; i < 3; i++)
-        d = pQueue1.Pop();
+    std::cout << "\n[Priority Queue]\n";
 
-    queue1.Push({ 74 });
-    queue1.Push({ -99 });
-    queue1.Push({ 2 });
+    for (int i = 0; i < n; i++) {
+        std::cout << "Priority = ";
+        std::cin >> priority;
 
-    queue1.ReadList();
+        std::cout << "Number = ";
+        std::cin >> d.data;
 
-    for (int i = 0; i < 3; i++)
-        d = queue1.Pop();
+        pQueue1.Push(priority, d);
+    }
 
-    stack1.Push({ 73 });
-    stack1.Push({ 21 });
-    stack1.Push({ 0 });
+    for (int i = 0; i < n; i++)
+        std::cout << pQueue1.Pop().data << " ";
 
-    for (int i = 0; i < 3; i++) 
-        d = stack1.Pop();
+    std::cout << "\n\n[Queue]\n";
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Number = ";
+        std::cin >> d.data;
+
+        queue1.Push(d);
+    }
+
+    for (int i = 0; i < n; i++)
+        std::cout << queue1.Pop().data << " ";
+
+    std::cout << "\n\n[Stack]\n";
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Number = ";
+        std::cin >> d.data;
+
+        stack1.Push(d);
+    }
+
+    for (int i = 0; i < n; i++)
+        std::cout << stack1.Pop().data << " ";
        
+    std::cout << "\n";
+
     return 0;
 }
